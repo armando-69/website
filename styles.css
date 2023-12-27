@@ -1,11 +1,10 @@
 @font-face {
   font-family: 'Poppins';
-  src: url('Poppins/Poppins-Bold.ttf') format('woff2'), /* for modern browsers */
+  src: url('Poppins/Poppins-Regular.ttf') format('woff2'), /* for modern browsers */
        url('Poppins/Poppins-Regular.ttf') format('woff'); /* for older browsers */
-  font-weight: normal;
+  font-weight: thick;
   font-style: normal;
 }
-
 body {
   font-family: 'Poppins', sans-serif;
   background-image: url('background.jpg'); /* Replace with your actual background image file */
@@ -15,20 +14,31 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #2c303a;
+  position: relative; /* Added to position the overlay */
 }
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(44, 48, 58, 0.5); /* Semi-transparent grey overlay */
+  z-index: -1; /* Ensure it stays behind the content */
+}
+
 
 * {
   box-sizing: border-box;
 }
 .card {
-  background: white;
+  background: rgba(255, 255, 255, 0.85); /* White with slight transparency */
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 320px; /* Adjust as needed */
-  /* Added max-width to ensure the card does not exceed the viewport width */
-  max-width: 100%;
+  max-width: 100%; /* Ensure the card does not exceed the viewport width */
   margin: 0 auto; /* Center the card in the body if body has flex properties */
 }
 
@@ -60,15 +70,15 @@ body {
 .form-control input,
 .form-control textarea,
 .form-control button {
-  width: calc(100% - 20px); /* Adjust width to account for padding */
+  width: calc(100% - 3px); /* Adjust width to account for padding */
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 4px;
   margin-bottom: 10px;
 }
 
 .form-control button {
-  background-color: #333;
+  background-color: #808285;
   color: white;
   border: none;
 }

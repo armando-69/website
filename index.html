@@ -56,7 +56,7 @@
     var subject = document.getElementById('subject').value; // Ensure you have an input field with id='subject'
     var message = document.getElementById('message').value;
     
-    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message + '\n\nRegards, ' + name);
+    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent('Hi Ayman, \n\n' + message + '\n\nRegards, ' + name);
 
     window.location.href = mailtoLink;
   });

@@ -34,7 +34,7 @@
         <input type="email" id="email" name="email" required>
       </div>    
       <div class="form-control">
-        <label for="Subject">Subject (required)</label>
+        <label for="subject">Subject (required)</label>
         <input type="subject" id="subject" name="subject" required>
       </div>    
       <div class="form-control">
@@ -53,9 +53,10 @@
   
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
+    var subject = document.getElementById('subject').value;
     var message = document.getElementById('message').value;
     
-    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=Subject' + '&body=' + encodeURIComponent(message + + '\n\Regards ' + name);
+    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=subject' + '&body=' + encodeURIComponent(message + + '\n\Regards ' + name);
   
     window.location.href = mailtoLink;
   });

@@ -42,6 +42,10 @@ body::before {
   margin: 0 auto; /* Center the card in the body if body has flex properties */
 }
 
+h4 {
+  text-align: center;
+  font-size: 0.8em; /* Adjust this value as needed */
+}
 
 .logo {
   text-align: center;

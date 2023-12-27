@@ -51,7 +51,7 @@
     var email = document.getElementById('email').value;
     var message = document.getElementById('message').value;
     
-    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=Contact from ' + name + '&body=' + encodeURIComponent(message + '\n\nReply to: ' + email);
+    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=Contact from ' + name + '&body=' + encodeURIComponent(message);
   
     window.location.href = mailtoLink;
   });

@@ -40,7 +40,9 @@ body::before {
   width: 320px; /* Adjust as needed */
   max-width: 100%; /* Ensure the card does not exceed the viewport width */
   margin: 0 auto; /* Center the card in the body if body has flex properties */
+  /* border: 4px transparent black; /* Adds a black border */
 }
+
 
 h4 {
   text-align: center;

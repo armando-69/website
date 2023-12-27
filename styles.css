@@ -86,6 +86,11 @@ h4 {
   color: white;
   border: none;
 }
+.form-control button:hover {
+  background-color: #000000;
+  color: white;
+  border: none;
+}
 
 .form-control input:focus,
 .form-control textarea:focus {

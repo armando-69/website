@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('Poppins/Poppins-Bold.ttf') format('woff2'), /* for modern browsers */
+       url('Poppins/Poppins-Regular.ttf') format('woff'); /* for older browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-image: url('background.jpg'); /* Replace with your actual background image file */
   background-size: cover;
   display: flex;
@@ -7,21 +15,38 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #2c303a; /* The variable $background is replaced with the actual hex color value */
+  background-color: #2c303a;
 }
 
+* {
+  box-sizing: border-box;
+}
 .card {
   background: white;
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 320px; /* Adjust as needed */
+  /* Added max-width to ensure the card does not exceed the viewport width */
+  max-width: 100%;
+  margin: 0 auto; /* Center the card in the body if body has flex properties */
 }
+
 
 .logo {
   text-align: center;
   margin-bottom: 20px;
+  max-width: 150px; /* Adjust the size as needed */
+  display: block; /* Change to block to center the image */
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.logo img {
+  width: 100%; /* This will make the image responsive and respect the max-width of the parent */
+  height: auto; /* Maintain aspect ratio */
+}
+
 
 .form-control {
   margin-bottom: 10px;
@@ -35,7 +60,7 @@ body {
 .form-control input,
 .form-control textarea,
 .form-control button {
-  width: 100%;
+  width: calc(100% - 20px); /* Adjust width to account for padding */
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;

@@ -23,7 +23,7 @@
         </div>                       
       </div> 
     </div>
-    <h3>Inquire Now</h3>
+    <h3>Enquire Now</h3>
     <form id="contact-form">
       <div class="form-control">
         <label for="name">Name</label>
@@ -53,13 +53,14 @@
   
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
-    var subject = document.getElementById('subject').value;
+    var subject = document.getElementById('subject').value; // Ensure you have an input field with id='subject'
     var message = document.getElementById('message').value;
     
-    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=subject' + '&body=' + encodeURIComponent(message + + '\n\Regards ' + name);
-  
+    var mailtoLink = 'mailto:Ayman@awengineers.com.au?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message + '\n\nRegards, ' + name);
+
     window.location.href = mailtoLink;
   });
-  </script>
+</script>
+
 </body>
 </html>

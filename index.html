@@ -49,6 +49,11 @@
         <label for="message">Your Message</label>
         <textarea id="message" name="message" rows="4"></textarea>
       </div>
+      <div style="display:none;">
+        <label for="honeypot">If you see this, leave it blank</label>
+        <input type="text" name="honeypot" id="honeypot" />
+    </div>
+
       <div class="form-control">
         <button type="submit">Contact Us</button>
       </div>
@@ -59,19 +64,34 @@
   document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();
 
+      // Check if the honeypot field is filled
+      if(document.getElementById('honeypot').value) {
+          console.log('Spam detected');
+          return; // Do not submit the form
+      }
+
+      // Check the number of submissions
+      let submissionCount = parseInt(localStorage.getItem('submissionCount') || 0);
+      if (submissionCount >= 2) {
+          alert('You have reached the maximum submission limit.');
+          return; // Do not submit the form
+      }
+
+      // Proceed with sending email via EmailJS
       emailjs.sendForm('service_tczbb4f', 'template_xdcaw6y', this)
           .then((response) => {
               console.log('SUCCESS!', response.status, response.text);
-              // Reset the form after successful form submission
-              this.reset();
-              // Optionally, display a success message to the user
+              this.reset(); // Reset the form after successful form submission
               alert("Thank you for your message. It has been sent.");
+
+              // Increment and save the submission count
+              localStorage.setItem('submissionCount', submissionCount + 1);
           }, (error) => {
               console.log('FAILED...', error);
-              // Handle errors here, optionally provide user feedback
               alert("Failed to send message. Please try again.");
           });
   });
 </script>
+
 </body>
 </html>
